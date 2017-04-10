@@ -1,55 +1,29 @@
-var C = new Audio('audio/136942__stomachache__c1.wav');
-var A = new Audio('audio/136945__stomachache__a2.wav');
-var E = new Audio('audio/136951__stomachache__e1.wav');
-var G = new Audio('audio/136952__stomachache__g1.wav');
 
-C.addEventListener("timeupdate", function() {
-    if (C.currentTime >=1) {
-	C.currentTime = 0;
-    } 
+var standard = new Howl({
+    "src": [
+	"audio/standard.ogg",
+	"audio/standard.m4a",
+	"audio/standard.mp3",
+	"audio/standard.ac3"
+    ],
+    "sprite": {
+	"a": [
+	    0,
+	    2260.090702947846
+	],
+	"c": [
+	    4000,
+	    3820.4308390022675
+	],
+	"e": [
+	    9000,
+	    1230.7029478458044
+	],
+	"g": [
+	    12000,
+	    2260
+	]
+    }
 });
 
-var currentlyPlaying;
 
-function playG() {
-    if (typeof(currentlyPlaying) != "undefined") {
-	currentlyPlaying.pause();
-	currentlyPlaying.currentTime = 0;
-    }
-    currentlyPlaying = G;
-    G.loop = true;
-    G.play();
-};
-function playC() {
-    if (typeof(currentlyPlaying) != "undefined") {
-	currentlyPlaying.pause();
-	currentlyPlaying.currentTime = 0;
-    }
-    currentlyPlaying = C;
-    C.loop = true;
-    C.play();
-};
-function playE() {
-    if (typeof(currentlyPlaying) != "undefined") {
-	currentlyPlaying.pause();
-	currentlyPlaying.currentTime = 0;
-    }
-    currentlyPlaying = E;
-    E.loop = true;
-    E.play();
-};
-function playA() {
-    if (typeof(currentlyPlaying) != "undefined") {
-	currentlyPlaying.pause();
-	currentlyPlaying.currentTime = 0;
-    }
-    currentlyPlaying = A;
-    A.loop = true;
-    A.play();
-};
-function stopAll() {
-    if (typeof(currentlyPlaying) != "undefined") {
-	currentlyPlaying.pause();
-	currentlyPlaying.currentTime = 0;
-    }
-};

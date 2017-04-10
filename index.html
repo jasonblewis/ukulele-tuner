@@ -14,12 +14,13 @@
     </head>
 
     <body>
+	<script src="howler.js/dist/howler.js"></script>
 	<script src="js/scripts.js"></script>
 	<h1>ukulele tuner</h1>
-	<button onclick="playG()">G</button>
-	<button onclick="playC()">C</button>
-	<button onclick="playE()">E</button>
-	<button onclick="playA()">A</button>
+	<button onclick="standard.play('g')">G</button>
+	<button onclick="standard.play('c')">C</button>
+	<button onclick="standard.play('e')">E</button>
+	<button onclick="standard.play('a')">A</button>
 	<button onclick="stopAll()">Stop</button>
     </body>
 </html>
