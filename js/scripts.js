@@ -25,5 +25,22 @@ var standard = new Howl({
 	]
     }
 });
+standard.loop(true);
+var currentlyPlaying;
+function myLoop(note) {
+    if (typeof(currentlyPlaying) != 'undefined') {
+	standard.stop(currentlyPlaying);
+    }
+    standard.stop(currentlyPlaying);
+    standard.play(note);
+    currentlyPlaying = note;
+}
 
+function myStop(note) {
+    console.log(currentlyPlaying);
+    standard.stop(note);
+}
 
+function stopCurrent() {
+    myStop(currentlyPlaying);
+}
