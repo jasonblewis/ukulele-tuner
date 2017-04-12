@@ -1,4 +1,4 @@
-
+var looplength = 1500;
 var standard = new Howl({
     "src": [
 	"audio/standard.ogg",
@@ -9,38 +9,44 @@ var standard = new Howl({
     "sprite": {
 	"a": [
 	    0,
-	    2260.090702947846
+	    looplength
 	],
 	"c": [
 	    4000,
-	    3820.4308390022675
+	    looplength
 	],
 	"e": [
 	    9000,
-	    1230.7029478458044
+	    looplength
 	],
 	"g": [
 	    12000,
-	    2260
+	    looplength
 	]
     }
 });
 standard.loop(true);
+
 var currentlyPlaying;
-function myLoop(note) {
+
+function myLoop(element,note) {
     if (typeof(currentlyPlaying) != 'undefined') {
 	standard.stop(currentlyPlaying);
     }
-    standard.stop(currentlyPlaying);
-    standard.play(note);
-    currentlyPlaying = note;
-}
-
-function myStop(note) {
-    console.log(currentlyPlaying);
-    standard.stop(note);
-}
-
-function stopCurrent() {
-    myStop(currentlyPlaying);
+    
+    standard.stop();
+    if (note != currentlyPlaying) {
+	standard.play(note);
+	currentlyPlaying = note;
+	var el = document.getElementsByClassName("active");
+	for (var i = 0; i < el.length; i++) {
+	    el[i].classList.remove('active');
+	}
+	element.classList.add("active");
+	
+    } else {
+	currentlyPlaying = undefined;
+	element.classList.remove("active");
+    }
+    
 }

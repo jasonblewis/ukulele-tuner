@@ -9,7 +9,7 @@
 	<meta name="keywords" content="HTML,JavaScript">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+	<link rel="stylesheet" href="css/style.css?v=1.0">
 
     </head>
 
@@ -17,10 +17,9 @@
 	<script src="howler.js/dist/howler.js"></script>
 	<script src="js/scripts.js"></script>
 	<h1>ukulele tuner</h1>
-	<button onclick="myLoop('g')">G</button>
-	<button onclick="myLoop('c')">C</button>
-	<button onclick="myLoop('e')">E</button>
-	<button onclick="myLoop('a')">A</button>
-	<button onclick="myStop()">Stop</button>
+	<button id="g" class="button" onclick="myLoop(this,'g')">G</button>
+	<button id="c" class="button" onclick="myLoop(this,'c')">C</button>
+	<button id="e" class="button" onclick="myLoop(this,'e')">E</button>
+	<button id="a" class="button" onclick="myLoop(this,'a')">A</button>
     </body>
 </html>
