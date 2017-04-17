@@ -1,0 +1,26 @@
+{
+  "urls": [
+    "aleho-acoustic.ogg",
+    "aleho-acoustic.m4a",
+    "aleho-acoustic.mp3",
+    "aleho-acoustic.ac3"
+  ],
+  "sprite": {
+    "aleho-acoustic-a": [
+      0,
+      4007.5736961451244
+    ],
+    "aleho-acoustic-c": [
+      6000,
+      4000.498866213153
+    ],
+    "aleho-acoustic-e": [
+      12000,
+      4000.1587301587306
+    ],
+    "aleho-acoustic-g": [
+      18000,
+      4000.589569160997
+    ]
+  }
+}

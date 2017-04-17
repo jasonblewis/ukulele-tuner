@@ -2,13 +2,15 @@
 <html lang="en">
     <head>
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 	<title>Ukulele Tuner</title>
 	<meta name="description" content="Ukulele Tuner">
 	<meta name="author" content="Jason Lewis">
 	<meta name="keywords" content="HTML,JavaScript">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css?v=1.0">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css" />
@@ -22,10 +24,22 @@
 	<script src="howler.js/dist/howler.js"></script>
 	<script src="js/scripts.js"></script>
 	<h1>Ukulele Tuner</h1>
-	<button id="g" class="button" onclick="myLoop(this,'g')">G</button>
-	<button id="c" class="button" onclick="myLoop(this,'c')">C</button>
-	<button id="e" class="button" onclick="myLoop(this,'e')">E</button>
-	<button id="a" class="button" onclick="myLoop(this,'a')">A</button>
+	<div clas="container-fluid">
+	    <div class="col-xs-12">
+		<div class="row">
+		    <button id="g" type="button" class="btn btn-default btn-lg" onclick="myLoop(this,'g')">G</button>
+		    <button id="c" type="button" class="btn btn-default btn-lg" onclick="myLoop(this,'c')">C</button>
+		    <button id="e" type="button" class="btn btn-default btn-lg" onclick="myLoop(this,'e')">E</button>
+		    <button id="a" type="button" class="btn btn-default btn-lg" onclick="myLoop(this,'a')">A</button>
+		</div>
+		<div class="row">
+		    <button id="next" type="button" class="btn btn-primary btn-lg btn-block" onclick="myLoop(this,'a')">next</button>
+		</div>
+		<div class="row">
+		    <button id="stop" type="button" class="btn btn-primary btn-lg btn-block" onclick="myLoop(this,'a')">stop</button>
+		</div>
+	    </div>
+	</div>
 	<a class="github-fork-ribbon" href="https://github.com/jasonblewis/ukulele-tuner" title="Fork me on GitHub">Fork me on GitHub</a>
     </body>
     <footer>
