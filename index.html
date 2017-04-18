@@ -12,12 +12,6 @@
 
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css?v=1.0">
-
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css" />
-	<!--[if lt IE 9]>
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.ie.min.css" />
-	<![endif]-->
-	
     </head>
 
     <body>
@@ -26,17 +20,17 @@
 	<h1>Ukulele Tuner</h1>
 	<div clas="container-fluid">
 	    <div class="col-xs-12">
-		<div class="row">
-		    <button id="g" type="button" class="btn btn-default btn-lg" onclick="myLoop(this,'g')">G</button>
-		    <button id="c" type="button" class="btn btn-default btn-lg" onclick="myLoop(this,'c')">C</button>
-		    <button id="e" type="button" class="btn btn-default btn-lg" onclick="myLoop(this,'e')">E</button>
-		    <button id="a" type="button" class="btn btn-default btn-lg" onclick="myLoop(this,'a')">A</button>
+		<div id="buttons" class="row">
+		    <button id="g" type="button" class="btn btn-default btn-lg">G</button>
+		    <button id="c" type="button" class="btn btn-default btn-lg">C</button>
+		    <button id="e" type="button" class="btn btn-default btn-lg">E</button>
+		    <button id="a" type="button" class="btn btn-default btn-lg">A</button>
 		</div>
 		<div class="row">
-		    <button id="next" type="button" class="btn btn-primary btn-lg btn-block" onclick="myLoop(this,'a')">next</button>
+		    <button id="next" type="button" class="btn btn-primary btn-lg btn-block")">next</button>
 		</div>
 		<div class="row">
-		    <button id="stop" type="button" class="btn btn-primary btn-lg btn-block" onclick="myLoop(this,'a')">stop</button>
+		    <button id="stop" type="button" class="btn btn-primary btn-lg btn-block">stop</button>
 		</div>
 	    </div>
 	</div>

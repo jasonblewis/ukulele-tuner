@@ -27,37 +27,9 @@ var standard = new Howl({
   }
 });
 
-
-var standardold = new Howl({
-    "src": [
-	"audio/standard.ogg",
-	"audio/standard.m4a",
-	"audio/standard.mp3",
-	"audio/standard.ac3"
-    ],
-    "sprite": {
-	"a": [
-	    0,
-	    looplength
-	],
-	"c": [
-	    4000,
-	    looplength
-	],
-	"e": [
-	    9000,
-	    looplength
-	],
-	"g": [
-	    12000,
-	    looplength
-	]
-    }
-});
-
-
-
 standard.loop(true);
+
+var strings = ["g","c","e","a"];
 
 var currentlyPlaying;
 
@@ -89,3 +61,51 @@ function myLoop(element,note) {
     }
     
 }
+
+function buttonPressed() {
+    if (this.id == currentlyPlaying) {
+	toggleButton(this.id);
+    } else {
+	radioButton(this.id);
+    }
+}
+
+function toggleButton(buttonId) {
+    document.getElementById(buttonId).classList.remove('active','btn-primary');
+    document.getElementById(buttonId).classList.add('btn-default');
+    currentlyPlaying = undefined;
+}
+
+function radioButton(buttonId) {
+    var el = document.getElementById("buttons").querySelectorAll(".active");
+    for (var i = 0; i < el.length; i++) {
+	el[i].classList.remove('active','btn-primary');
+	el[i].classList.add('btn-default');
+    }
+    
+    document.getElementById(buttonId).classList.add("active", "btn-primary");
+    currentlyPlaying = buttonId;
+}
+
+function playNext() {
+    if (typeof currentlyPlaying === 'undefined') { // it's undefined
+	// start playing the first string
+	radioButton(strings[0]);
+    } else {
+	// move to next string
+	console.log(strings);
+	console.log(currentlyPlaying);
+	console.log(strings.indexOf(currentlyPlaying));
+	radioButton(strings[strings.indexOf(currentlyPlaying)+1]);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    Array.prototype.slice.call(
+	document.querySelectorAll("#g,#c,#e,#a")
+    ).forEach(function(el) {
+	el.addEventListener("click", buttonPressed);
+    });
+    document.getElementById("next").addEventListener("click", playNext);
+}, false);
