@@ -63,16 +63,19 @@ function myLoop(element,note) {
 }
 
 function buttonPressed() {
+    standard.stop();
     if (this.id == currentlyPlaying) {
-	toggleButton(this.id);
+	offButton(this.id);
     } else {
 	radioButton(this.id);
-    }
+    	standard.play(this.id);
+}
 }
 
-function toggleButton(buttonId) {
+function offButton(buttonId) {
     document.getElementById(buttonId).classList.remove('active','btn-primary');
     document.getElementById(buttonId).classList.add('btn-default');
+    standard.stop();
     currentlyPlaying = undefined;
 }
 
@@ -84,7 +87,9 @@ function radioButton(buttonId) {
     }
     
     document.getElementById(buttonId).classList.add("active", "btn-primary");
+    standard.stop();
     currentlyPlaying = buttonId;
+    standard.play(buttonId);
 }
 
 function playNext() {
@@ -103,11 +108,27 @@ function stopAll() {
 	el[i].classList.remove('active','btn-primary');
 	el[i].classList.add('btn-default');
     }
+    standard.stop();
+    currentlyPlaying = undefined;
 }
 
+var delta = 300;
+var lastKeypressTime = 0;
 function keydown(event) {
-    if (event.keyCode == 32) {
-        playNext();
+    var thisKeypressTime = new Date();
+    if ( thisKeypressTime - lastKeypressTime <= delta )  {
+	stopAll();
+        // optional - if we'd rather not detect a triple-press
+        // as a second double-press, reset the timestamp
+        thisKeypressTime = 0;
+	
+    } else { 
+	if (event.keyCode == 32) {
+	    event.preventDefault();
+
+            playNext();
+	}
+	lastKeypressTime = thisKeypressTime;
     }
 }
 
