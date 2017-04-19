@@ -93,10 +93,13 @@ function playNext() {
 	radioButton(strings[0]);
     } else {
 	// move to next string, loop around if we are on the last one
-	console.log(strings);
-	console.log(currentlyPlaying);
-	console.log(strings.indexOf(currentlyPlaying));
 	radioButton(strings[(strings.indexOf(currentlyPlaying)+1) % strings.length]);
+    }
+}
+
+function keydown(event) {
+    if (event.keyCode == 32) {
+        playNext();
     }
 }
 
@@ -108,4 +111,5 @@ document.addEventListener('DOMContentLoaded', function () {
 	el.addEventListener("click", buttonPressed);
     });
     document.getElementById("next").addEventListener("click", playNext);
+    document.addEventListener("keydown",keydown);
 }, false);
