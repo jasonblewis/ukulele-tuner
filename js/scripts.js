@@ -97,6 +97,14 @@ function playNext() {
     }
 }
 
+function stopAll() {
+    var el = document.getElementById("buttons").querySelectorAll(".active");
+    for (var i = 0; i < el.length; i++) {
+	el[i].classList.remove('active','btn-primary');
+	el[i].classList.add('btn-default');
+    }
+}
+
 function keydown(event) {
     if (event.keyCode == 32) {
         playNext();
@@ -111,5 +119,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	el.addEventListener("click", buttonPressed);
     });
     document.getElementById("next").addEventListener("click", playNext);
+    document.getElementById("stop").addEventListener("click", stopAll);
     document.addEventListener("keydown",keydown);
 }, false);
