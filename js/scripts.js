@@ -92,11 +92,11 @@ function playNext() {
 	// start playing the first string
 	radioButton(strings[0]);
     } else {
-	// move to next string
+	// move to next string, loop around if we are on the last one
 	console.log(strings);
 	console.log(currentlyPlaying);
 	console.log(strings.indexOf(currentlyPlaying));
-	radioButton(strings[strings.indexOf(currentlyPlaying)+1]);
+	radioButton(strings[(strings.indexOf(currentlyPlaying)+1) % strings.length]);
     }
 }
 
