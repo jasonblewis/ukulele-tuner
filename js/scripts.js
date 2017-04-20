@@ -86,17 +86,15 @@ function stopAll() {
 var delta = 300;
 var lastKeypressTime = 0;
 function keydown(event) {
-    var thisKeypressTime = new Date();
-    if ( thisKeypressTime - lastKeypressTime <= delta )  {
-	stopAll();
-        // optional - if we'd rather not detect a triple-press
-        // as a second double-press, reset the timestamp
-        thisKeypressTime = 0;
-	
-    } else { 
-	if (event.keyCode == 32) {
-	    event.preventDefault();
-
+    if (event.keyCode == 32) {
+	event.preventDefault();
+        var thisKeypressTime = new Date();
+        if ( thisKeypressTime - lastKeypressTime <= delta )  {
+	    stopAll();
+            // optional - if we'd rather not detect a triple-press
+            // as a second double-press, reset the timestamp
+            thisKeypressTime = 0;
+        } else { 
             playNext();
 	}
 	lastKeypressTime = thisKeypressTime;
